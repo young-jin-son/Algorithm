@@ -1,1 +1,1 @@
-# JavaScript-Algorithm
+## Algorithm-js
