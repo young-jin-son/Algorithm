@@ -12,8 +12,10 @@ for (let i = 0; i < n; i++) {
 }
 console.log(graph);
 for (let i = 0; i < k; i++) {
-  const [x, y] = [indexInfo[i][0], indexInfo[i][1]];
-  console.log(x, y);
+  const [x, y] = indexInfo[i];
+  if (x >= 0 && x < n && y >= 0 && y < m) {
+    graph[x][y] = 1;
+  }
 }
 
 console.log(graph);
