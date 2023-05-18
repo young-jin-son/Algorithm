@@ -7,3 +7,10 @@ const n = Number(input[0]);
 const graph = input.slice(1).map(el => el.split(' ').map(Number));
 
 console.log(n, graph);
+
+const cur = [0, 0];
+for (let i = 0; i < n; i++) {
+  for (let j = 0; j < n; j++) {
+    
+  }
+}
