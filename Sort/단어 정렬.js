@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const input = fs.readFileSync("./dev/stdin").toString().trim().split("\n").map(v => v.trim());
-const n = +input.shift()
+const n = +input.shift();
 const answer = [...new Set(input)].sort((a, b) => {
   if (a.length > b.length) {
     return 1;
@@ -12,10 +12,10 @@ const answer = [...new Set(input)].sort((a, b) => {
     if (a > b) {
       return 1;
     } else {
-      return -1
+      return -1;
     }
   }
 })
-console.log(answer.join('\n'))
+console.log(answer.join('\n'));
 
 
