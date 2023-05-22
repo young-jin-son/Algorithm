@@ -4,9 +4,9 @@
 
 const fs = require('fs');
 const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
-const [n, m] = input[0].split(' ').map(Number);
-const board = input.slice(1);
-// 미리 답으로 나와야 하는 체스판을 만듦
+const [n, m] = input[0].split(' ').map(Number); // 입력받은 board 크기
+const board = input.slice(1); // 입력받은 board
+// 미리 답으로 나와야 하는 체스판을 만듦 
 const whiteBoard = new Array(8).fill(0).map((v, i) => (i % 2) ? 'BWBWBWBW' : 'WBWBWBWB');
 const blackBoard = new Array(8).fill(0).map((v, i) => (i % 2) ? 'WBWBWBWB' : 'BWBWBWBW');
 
@@ -16,6 +16,7 @@ for (let i = 0; i < n - 7; i++) {
   for (let j = 0; j < m - 7; j++) {
     [whiteBoardCount, blackBoardCount] = [0, 0];
 
+    // 8*8 크기만큼 검사
     for (let k = 0; k < 8; k++) {
       for (let l = 0; l < 8; l++) {
         // 흰색으로 시작하는 체스판을 만들 때 칠해야 하는 타일 수를 셈
