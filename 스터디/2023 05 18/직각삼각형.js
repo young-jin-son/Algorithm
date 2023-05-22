@@ -10,4 +10,3 @@ for (el of input) {
 }
 
 console.log(answer);
-
