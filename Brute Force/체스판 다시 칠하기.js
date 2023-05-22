@@ -5,31 +5,30 @@
 const fs = require('fs');
 const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 const [n, m] = input[0].split(' ').map(Number);
-const boardO = input.slice(1);
+const board = input.slice(1);
 // 미리 답으로 나와야 하는 체스판을 만듦
-const boardW = new Array(8).fill(0).map((v, i) => (i % 2) ? 'BWBWBWBW' : 'WBWBWBWB');
-const boardB = new Array(8).fill(0).map((v, i) => (i % 2) ? 'WBWBWBWB' : 'BWBWBWBW');
+const whiteBoard = new Array(8).fill(0).map((v, i) => (i % 2) ? 'BWBWBWBW' : 'WBWBWBWB');
+const blackBoard = new Array(8).fill(0).map((v, i) => (i % 2) ? 'WBWBWBWB' : 'BWBWBWBW');
 
-let [min, countW, countB] = [64, 0, 0];
+let [min, whiteBoardCount, blackBoardCount] = [64, 0, 0];
 
-// 
 for (let i = 0; i < n - 7; i++) {
   for (let j = 0; j < m - 7; j++) {
-    [countW, countB] = [0, 0];
+    [whiteBoardCount, blackBoardCount] = [0, 0];
 
     for (let k = 0; k < 8; k++) {
       for (let l = 0; l < 8; l++) {
         // 흰색으로 시작하는 체스판을 만들 때 칠해야 하는 타일 수를 셈
-        if (boardO[i + k][j + l] !== boardW[k][l]) {
-          countW++;
+        if (board[i + k][j + l] !== whiteBoard[k][l]) {
+          whiteBoardCount++;
         }
         // 검정색으로 시작하는 체스판을 만들 때 칠해야 하는 타일 수를 셈
-        if (boardO[i + k][j + l] !== boardB[k][l]) {
-          countB++;
+        if (board[i + k][j + l] !== blackBoard[k][l]) {
+          blackBoardCount++;
         }
       }
     }
-    min = Math.min(min, countW, countB);
+    min = Math.min(min, whiteBoardCount, blackBoardCount);
   }
 }
 
