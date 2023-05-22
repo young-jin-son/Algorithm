@@ -12,7 +12,6 @@ const boardB = new Array(8).fill(0).map((v, i) => (i % 2) ? 'WBWBWBWB' : 'BWBWBW
 
 let [min, countW, countB] = [64, 0, 0];
 
-// 
 for (let i = 0; i < n - 7; i++) {
   for (let j = 0; j < m - 7; j++) {
     [countW, countB] = [0, 0];
