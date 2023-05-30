@@ -9,7 +9,7 @@ const solution = (n, arr) => {
   // 끝나는 시간 기준 오름차순 정렬
   // 끝나는 시간이 같으면 시작하는 시간 기준 오름차순 정렬
   let answer = 1;
-  arr = arr.sort((a, b) => (a[1] - b[1] === 0) ? a[0] = b[0] : a[1] - b[1]);
+  arr = arr.sort((a, b) => (a[1] - b[1] === 0) ? a[0] - b[0] : a[1] - b[1]);
   let prev = arr[0];
 
   for (let i = 1; i < n; i++) {
