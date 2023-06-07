@@ -12,6 +12,7 @@ let cal = doughCal + toppings.reduce((a, b) => a + b, 0);
 let price = doughPrice + toppingPrice * numToppings;
 let calPerWon = Math.floor(cal / price);
 
+// 칼로리 낮은 토핑 하나씩 빼면서 반복
 for (let i = numToppings - 1; i >= 0; i--) {
   cal = doughCal + toppings.slice(0, i).reduce((a, b) => a + b, 0);
   price = doughPrice + toppingPrice * i;
