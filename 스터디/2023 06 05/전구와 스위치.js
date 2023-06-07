@@ -6,7 +6,7 @@ const n = +input[0];
 const from = input[1].split('').map(Number);
 const to = input[2].split('').map(Number);
 
-// a와 b가 같은지 반환하는 함수
+// a와 b가 같은지 검사하는 함수
 const isMatch = (a, b) => {
   for (let i = 0; i < n; i++) {
     if (a[i] !== b[i]) return false;
@@ -29,15 +29,12 @@ const toggleSwitch = (idx, bulbs) => {
 const getMinPress = (firstPressed) => {
   const tmp = [...from];
   let count = 0;
-  // 첫 번째 스위치를 누르는 경우
-  if (firstPressed) {
+  if (firstPressed) {// 첫 번째 스위치를 누르는 경우
     toggleSwitch(0, tmp);
     count++;
   }
-  // 두 번째 스위치부터 반복하면서
-  for (let i = 1; i < n; i++) {
-    // 만약 i-1번째의 값이 최종 결과와 다르다면 i번째 스위치를 누름
-    if (tmp[i - 1] != to[i - 1]) {
+  for (let i = 1; i < n; i++) { // 두 번째 스위치부터 반복하면서
+    if (tmp[i - 1] != to[i - 1]) { // 만약 i-1번째의 값이 최종 결과와 다르다면 i번째 스위치를 누름
       toggleSwitch(i, tmp);
       count++;
     }
