@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = (process.platform === 'linux') ? '/dev/stdin' : './test.txt';
 const [n, ...input] = fs.readFileSync(path).toString().trim().split('\n');
 let homeworks = input.map(el => el.split(' ').map(Number)).sort((a, b) => (a[0] === b[0]) ? b[1] - a[1] : b[0] - a[0]); // 내림차순으로 정렬
-console.log(homeworks);
 
 // 첫 번째 값은 무조건 포함됨. 따라서 첫 번째 값을 day와 answer에 넣음
 let day = homeworks[0][0] - 1;

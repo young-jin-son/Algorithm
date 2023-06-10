@@ -14,6 +14,8 @@ words.forEach(word => {
 });
 
 // 각 값의 자릿수 계산 결과를 내림차순으로 정렬 후 가중치를 곱하여 답을 구함
-const answer = Object.values(count).sort((a, b) => b - a).reduce((acc, v, i) => acc + v * (9 - i), 0);
+const answer = Object.values(count)
+  .sort((a, b) => b - a)
+  .reduce((acc, v, i) => acc + v * (9 - i), 0);
 
 console.log(answer);
