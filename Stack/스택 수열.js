@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = process.platform === 'linux' ? '/dev/stdin' : './test.txt';
-const [n, ...input] = fs.readFileSync(path).toString().trim().split('\n').map(Number);
+let [n, ...input] = fs.readFileSync(path).toString().trim().split('\n').map(Number);
 
 const arr = input.reverse();
 const stack = [];
