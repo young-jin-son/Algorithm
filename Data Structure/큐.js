@@ -77,9 +77,6 @@ for (let i = 0; i < n; i++) {
   } else if (c === 'back') {
     answer.push(queue.getBack());
   }
-  console.log(c, v);
-  console.log(queue);
-  console.log(answer);
 }
 
 console.log(answer.join('\n'));
