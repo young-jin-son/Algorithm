@@ -1,5 +1,5 @@
 // TODO: 배열로 스택 만들어서 해보기
-
+78
 const fs = require('fs');
 const path = process.platform === 'linux' ? '/dev/stdin' : './test.txt';
 const [str, n, ...commands] = fs.readFileSync(path).toString().trim().split('\n');
