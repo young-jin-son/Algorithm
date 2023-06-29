@@ -4,7 +4,7 @@ const [n, exp, ...input] = fs.readFileSync(path).toString().trim().split('\n');
 const stack = [];
 const values = {};
 
-for (let i = 0; i < n; i++) {
+for (let i = 0; i < n; i++) { // 피연산자에 대응하는 값 저장
   values[String.fromCharCode([65 + i])] = +input[i];
 }
 

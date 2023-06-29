@@ -7,7 +7,6 @@ const sol = (num) => {
   for (let i = 3; i <= num; i++) {
     tmp.push(tmp[i - 1] + tmp[i - 2] + tmp[i - 3]);
   }
-  console.log(tmp);
   return tmp.pop();
 }
 const answer = [];
