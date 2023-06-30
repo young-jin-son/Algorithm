@@ -6,12 +6,11 @@ const answer = [];
 
 const isPrime = (n) => {
   for (let i = 3; i <= Math.sqrt(n); i += 2) {
-    if (n % i === 0) {
-      return false;
-    }
+    if (!(n % i)) return false;
   }
   return true;
 }
+
 for (const v of input) {
   let [x, y] = [3, v - 3];
   let isConfirm = false;
@@ -25,4 +24,5 @@ for (const v of input) {
   }
   answer.push((isConfirm) ? `${v} = ${x} + ${y}` : "Goldbach's conjecture is wrong.");
 }
+
 console.log(answer.join('\n'));
