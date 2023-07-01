@@ -5,25 +5,25 @@ const answer = [];
 const stack = [];
 
 for (const v of exp) {
-  if (v === '(') {
+  if (v === '(') { // 열린 괄호
     stack.push(v);
-  } else if (v === ')') {
+  } else if (v === ')') { // 닫힌 괄호
     while (1) {
       const popped = stack.pop();
       if (popped === '(') break;
       answer.push(popped);
     }
-  } else if (/[*/]/.test(v)) {
+  } else if (/[*/]/.test(v)) { // *, /
     if (stack.at(-1) === '*' || stack.at(-1) === '/') {
       answer.push(stack.pop());
     }
     stack.push(v);
-  } else if (/[+\-]/.test(v)) {
+  } else if (/[+\-]/.test(v)) { // +, -
     while (/[+\-*/]/.test(stack.at(-1))) {
       answer.push(stack.pop());
     }
     stack.push(v);
-  } else {
+  } else { // 알파벳
     answer.push(v);
   }
 }
