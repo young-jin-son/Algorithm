@@ -1,4 +1,4 @@
-// TODO: 배열에 미리 저장해놓으면 훨씬 빠름
+// TODO: 배열에 미리 저장해놓으면 훨씬 빠른 듯 ?
 const fs = require('fs');
 const path = process.platform === 'linux' ? '/dev/stdin' : './test.txt';
 const input = fs.readFileSync(path).toString().trim().split('\n').map(Number);
