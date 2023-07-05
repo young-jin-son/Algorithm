@@ -1,11 +1,18 @@
 const fs = require('fs');
 const path = process.platform === 'linux' ? '/dev/stdin' : './test.txt';
 const [n, ...arr] = fs.readFileSync(path).toString().trim().split(/\s/g).map(Number);
-const obj = {};
+
+const dp = new Array(n).fill(1);
+
 for (let i = 0; i < n; i++) {
-// for (const (v, i) of arr) {
-  if (!obj[arr[i]] && arr[i] > obj[obj.length]) {
-    obj[arr[i]] = 1;
+  let tmp = 0;
+  for (let j = 0; j < i; j++) {
+    // 증가하고, 현재 부분 배열 중 최대값이라면
+    if (arr[i] > arr[j] && dp[j] > tmp) {
+      tmp = dp[j];
+    }
   }
+  dp[i] = tmp + 1;
 }
-console.log(Object.values(obj).length);
+
+console.log(Math.max(...dp));
