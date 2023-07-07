@@ -8,7 +8,7 @@ const getGCD = (a, b) => {
   return getGCD(b, a % b);
 }
 
-while (diff.length > 1){
+while (diff.length > 1) {
   diff.push(getGCD(diff.pop(), diff.pop()));
 }
 
