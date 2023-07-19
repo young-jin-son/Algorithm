@@ -5,5 +5,4 @@ const dp = [arr[0]];
 for (let i = 1; i < n; i++) {
   dp[i] = Math.max(arr[i], arr[i] + dp[i - 1]);
 }
-console.log(dp);
 console.log(Math.max(...dp));
