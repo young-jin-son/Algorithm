@@ -1,30 +1,15 @@
-// const input = ['5', '2 4 -10 4 -9'];
-const input = ['6', '1000 999 1000 999 1000 999'];
-
 const fs = require('fs');
-// const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
-const n = Number(input[0]);
-const coordinates = input[1].split(' ').map(Number);
-let answer = [...coordinates].map(v => {
-  let count = 0;
-  const min = [];
-  for (let i = 0; i < n; i++) {
-    if (coordinates[i] < v) {
-      if (min.indexOf(coordinates[i]) < 0) {
-        count++;
-        min.push(coordinates[i]);
-      }
-    }
-  }
-  // coordinates.forEach(c => {
-  //   if (c < v) {
-  //     if (min.indexOf(c) < 0) {
-  //       count++;
-  //       min.push(c);
-  //     }
-  //   }
-  // });
-  return count;
-});
+const path = process.platform === 'linux' ? '/dev/stdin' : './test.txt';
+const [n, ...arr] = fs.readFileSync(path).toString().trim().split(/\s/g).map(Number);
+
+const answer = [];
+const set = Array.from(new Set([...arr])).sort((a, b) => a - b);
+const obj = {};
+
+set.forEach((v, i) => obj[v] = i);
+
+for (let i = 0; i < n; i++) {
+  answer.push(obj[arr[i]]);
+}
 
 console.log(answer.join(' '));
