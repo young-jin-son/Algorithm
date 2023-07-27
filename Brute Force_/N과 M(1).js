@@ -4,20 +4,20 @@ const [n, m] = fs.readFileSync(path).toString().trim().split(' ').map(Number);
 
 const visited = Array.from({ length: n }, () => 0);
 const answer = [];
-const seq = [];
+const tmp = [];
 
 const dfs = (cnt) => {
   if (cnt === m) {
-    answer.push(seq.join(' '));
+    answer.push(tmp.join(' '));
     return;
   }
 
   for (let i = 0; i < n; i++) {
     if (!visited[i]) {
       visited[i] = 1;
-      seq.push(i + 1);
+      tmp.push(i + 1);
       dfs(cnt + 1);
-      seq.pop();
+      tmp.pop();
       visited[i] = 0;
     }
   }
