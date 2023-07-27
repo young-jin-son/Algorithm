@@ -4,30 +4,44 @@ const [n, ...arr] = fs.readFileSync(path).toString().trim().split(/\s/g).map(Num
 
 const answer = [];
 
-class Heap {
-  constructor() {
-    this.min = 0;
-    this.arr = [];
-  }
-
-  getMin() {
-    return this.min;
-  }
-
-  push(v) {
-    this.arr.push(v);
-    console.log(this.arr);
+class Node {
+  constructor(v) {
+    this.value = v;
+    this.prev = null;
+    this.next = null;
   }
 }
 
-const heap = new Heap();
-
-arr.forEach(v => {
-  if (v === 0) {
-    answer.push(heap.getMin());
-  } else {
-    heap.push(v);
+class Heap {
+  constructor() {
+    this.head = null;
+    this.tail = null;
   }
-})
+
+  push(v) {
+    const newNode = new Node(v);
+
+    if (!this.head) {
+      this.head = newNode;
+    } else {
+      let cur = this.head;
+      while (v > cur.value) {
+
+      }
+    }
+
+  }
+
+  getMin() {
+    if (!this.head) {
+      return 0;
+    }
+
+    const min = this.head;
+    this.head = this.head.next;
+    this.head.prev = null;
+    return min;
+  }
+}
 
 console.log(answer.join('\n'));
