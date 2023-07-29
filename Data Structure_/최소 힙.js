@@ -15,7 +15,7 @@ class Node {
 class Heap {
   constructor() {
     this.head = null;
-    this.tail = null;
+    // this.tail = null;
   }
 
   push(v) {
@@ -25,8 +25,8 @@ class Heap {
       this.head = newNode;
     } else {
       let cur = this.head;
-      while (v > cur.value) {
-
+      while (v > cur.value || cur.next) {
+        cur = cur.next;
       }
     }
 
