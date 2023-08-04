@@ -37,4 +37,3 @@ max = max.toString().padStart(n + 1, '0');
 min = min.toString().padStart(n + 1, '0');
 
 console.log(`${max}\n${min}`);
-
