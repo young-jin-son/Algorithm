@@ -4,9 +4,8 @@ const [n, m] = fs.readFileSync(path).toString().trim().split(' ').map(Number);
 
 const answer = [];
 const tmp = [];
-const isVisited = Array.from({ length: n }, () => false);
 
-const dfs = (idx, cnt) => {
+const sol = (idx, cnt) => {
   if (cnt === m) {
     answer.push(tmp.join(' '));
     return;
@@ -14,10 +13,10 @@ const dfs = (idx, cnt) => {
 
   for (let i = idx; i <= n; i++) {
     tmp.push(i);
-    dfs(i, cnt + 1);
+    sol(i, cnt + 1);
     tmp.pop();
   }
 }
 
-dfs(1, 0);
+sol(1, 0);
 console.log(answer.join('\n'));
