@@ -19,4 +19,5 @@ const sol = (idx, cnt) => {
 }
 
 sol(1, 0);
+
 console.log(answer.join('\n'));
