@@ -9,9 +9,9 @@ const sol = (input) => {
   const tmp = [];
 
   const isPassword = (pwd) => {
-    const regexConsonants = /[^aeiou]/;
-    let vowelCnt = pwd.filter(str => !regexConsonants.test(str)).length;
-    let consonantCnt = pwd.filter(str => regexConsonants.test(str)).length;
+    const regexVowels = /[aeiou]/;
+    let vowelCnt = pwd.filter(str => regexVowels.test(str)).length;
+    let consonantCnt = pwd.filter(str => !regexVowels.test(str)).length;
     return (vowelCnt >= 1 && consonantCnt >= 2);
   }
 
