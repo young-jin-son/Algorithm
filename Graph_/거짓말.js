@@ -6,4 +6,7 @@ const [truthNum, ...truthPeople] = input[1].split(' ').map(Number);
 const parties = input.slice(2).map(el => el.split(' ').map(Number));
 console.log(n, m);
 console.log(truthNum, truthPeople);
+for (let i = 0; i < m; i++) {
+
+}
 console.log(parties);

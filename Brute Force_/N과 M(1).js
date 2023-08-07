@@ -6,7 +6,7 @@ const visited = Array.from({ length: n }, () => 0);
 const answer = [];
 const tmp = [];
 
-const sol = (cnt) => {
+const dfs = (cnt) => {
   if (cnt === m) {
     answer.push(tmp.join(' '));
     return;
@@ -16,12 +16,12 @@ const sol = (cnt) => {
     if (!visited[i]) {
       visited[i] = 1;
       tmp.push(i + 1);
-      sol(cnt + 1);
+      dfs(cnt + 1);
       tmp.pop();
       visited[i] = 0;
     }
   }
 }
 
-sol(0);
+dfs(0);
 console.log(answer.join('\n'));
