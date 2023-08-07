@@ -7,7 +7,6 @@ const sum = [0];
 for (let i = 0; i < n; i++) {
   sum[i + 1] = sum[i] + arr[i];
 }
-
 const answer = [];
 for (let i = 0; i < m; i++) {
   const [left, right] = input[i].split(' ').map(Number);
