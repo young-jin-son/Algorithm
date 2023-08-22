@@ -12,13 +12,7 @@ if (xIdx < 0) {
     answer += exp + 'x';
   }
 } else {
-  if (xIdx === 0) {
-    answer += 1 / 2;
-  } else if (exp.slice(0, xIdx) === '-') {
-    answer += -1 / 2;
-  } else {
-    answer += +(exp.slice(0, xIdx)) / 2;
-  }
+  answer += +(exp.slice(0, xIdx)) / 2;
   if (answer === '1' || answer === '-1') {
     answer = answer.slice(0, -1);
   }
