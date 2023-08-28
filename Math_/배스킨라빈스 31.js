@@ -7,13 +7,13 @@ let [num, cnt] = [0, 1000];
 for (let i = 0; i < n; i++) {
   const [j, m] = input[i].split(' ').map(Number);
   const r = (j - 1) % (1 + m);
-  const firstWinningNumber = 1 + r;
+  const firstWinningNum = 1 + r;
 
-  const winningNumbersCount = Math.ceil((j - firstWinningNumber + 1) / (1 + m)) * 2;
+  const winningNumsCnt = Math.ceil((j - firstWinningNum + 1) / (1 + m)) * 2;
 
-  if (winningNumbersCount < cnt) {
+  if (winningNumsCnt < cnt) {
     num = i + 1;
-    cnt = winningNumbersCount;
+    cnt = winningNumsCnt;
   }
 }
 
