@@ -1,10 +1,11 @@
 const fs = require('fs');
 const path = process.platform === 'linux' ? '/dev/stdin' : './test.txt';
-const input = fs.readFileSync(path)
+const arr = fs.readFileSync(path)
   .toString()
   .trim()
-  .split('\n');
-const arr = input[1].split(' ').map(Number);
+  .split(/\s/)
+  .slice(1)
+  .map(Number);
 const numCount = Array(1003).fill(0);
 for (const num of arr) {
   numCount[num] += 1;
