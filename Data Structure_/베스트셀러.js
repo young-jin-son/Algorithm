@@ -17,5 +17,4 @@ for (const title of arr) {
 }
 const result = Object.keys(counter)
   .sort((a, b) => counter[a] === counter[b] ? a.localeCompare(b) : counter[b] - counter[a]);
-
 console.log(result[0]);

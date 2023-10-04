@@ -4,9 +4,9 @@ const input = fs.readFileSync(path).toString().trim().split('\n').map(el => el.s
 const size = 101;
 const graph = Array.from({ length: size }, () => Array.from({ length: size }, () => 0));
 // 그래프 그리기
-for (const [a, b, c, d] of input) {
-  for (let i = a; i < c; i++) {
-    for (let j = b; j < d; j++) {
+for (const [x1, y1, x2, y2] of input) {
+  for (let i = x1; i < x2; i++) {
+    for (let j = y1; j < y2; j++) {
       graph[i][j] = 1;
     }
   }
