@@ -9,7 +9,9 @@ let answer = 0;
 for (let i = 0; i < n; i++) {
   arr[i] -= b;
   answer++;
-  answer += Math.ceil(arr[i] / c);
+  if (arr[i] > 0) {
+    answer += Math.ceil(arr[i] / c);
+  }
 }
 
 console.log(answer);
