@@ -3,7 +3,7 @@ const path = process.platform === 'linux' ? '/dev/stdin' : './test.txt';
 const input = fs.readFileSync(path).toString().trim().split('\n');
 const n = +input[0];
 const arr = input[1].split(' ').map(Number);
-const op = input[2].split(' ').map(Number); // 덧셈, 뺄셈, 곱셈, 나눗셈
+const op = input[2].split(' ').map(Number);
 let max = -1_000_000_000;
 let min = 1_000_000_000;
 
