@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = process.platform === 'linux' ? '/dev/stdin' : './test.txt';
 const input = fs.readFileSync(path).toString().trim().split('\n');
 const [C, N] = input[0].split(' ').map(Number);
-const arr = input.slice(1).map(el => el.split(' ').map(Number));
-const dp = Array.from({ length: 1001 }, () => 100);
+const arr = input.slice(1).map(el => el.split(' ').map(Number)).sort((a, b) => a[0] - b[0]);
+const dp = Array.from({ length: C + 1 }, () => Infinity);
 
 for (const [cost, customer] of arr) {
   if (dp[customer] > cost) {
