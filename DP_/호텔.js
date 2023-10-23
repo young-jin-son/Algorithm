@@ -6,7 +6,7 @@ const arr = input.slice(1).map(el => el.split(' ').map(Number));
 const dp = Array.from({ length: C + 1 }, () => Infinity);
 
 for (const [cost, customer] of arr) {
-  if (dp[customer] > cost) {
+  if (cost < dp[customer]) {
     dp[customer] = cost;
   }
   for (let i = 1; i <= C; i++) {
