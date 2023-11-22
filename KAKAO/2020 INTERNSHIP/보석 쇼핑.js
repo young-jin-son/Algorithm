@@ -1,22 +1,15 @@
 function solution(gems) {
-  const gemSet = new Set(gems);
-  const answer = [1, gems.length];
-
-  for (let i = 0; i < gems.length - gemSet.size + 1; i++) {
-    const tmpSet = new Set();
-    for (let j = i; j < gems.length; j++) {
-      if (!tmpSet.has(gems[j])) {
-        tmpSet.add(gems[j]);
-        if (tmpSet.size === gemSet.size) {
-          if (answer[1] - answer[0] > j - i) {
-            [answer[0], answer[1]] = [i + 1, j + 1];
-          }
-          break;
-        }
-      }
+  const cnt = new Set(gems).size;
+  const gemMap = new Map();
+  let answer = [1, gems.length];
+  gems.forEach((gem, i) => {
+    gemMap.delete(gem);
+    gemMap.set(gem, i); // 보석의 위치를 저장함
+    if (gemMap.size === cnt) {
+      const cand = [gemMap.values().next().value + 1, i + 1];
+      answer = answer[1] - answer[0] > cand[1] - cand[0] ? cand : answer;
     }
-    if (tmpSet.size < gemSet.size) break;
-  }
+  })
   return answer;
 }
 
