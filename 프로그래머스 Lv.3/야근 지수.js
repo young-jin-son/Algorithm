@@ -1,14 +1,18 @@
 function solution(n, works) {
-  for (let i = 0; i < n; i++) {
-    const max = Math.max(...works);
-    const maxIdx = works.indexOf(max);
-    if (max === 0) return 0;
-    works[maxIdx]--;
+  works.sort((a, b) => b - a);
+  while (n && works[0]) {
+    const max = works[0];
+    for (let i = 0; i < works.length; i++) {
+      if (works[i] >= max) {
+        works[i]--;
+        n--;
+      } else break;
+      if (!n) break;
+    }
   }
-  const answer = works.reduce((a, b) => a + b * b, 0);
-  return answer;
+  return works.reduce((a, b) => a + b * b, 0);
 }
-// O(n^2)
+
 console.log(solution(4, [4, 3, 3])) // 12
 console.log(solution(1, [2, 1, 2])) // 6
 console.log(solution(3, [1, 1])) // 0
