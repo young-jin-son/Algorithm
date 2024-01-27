@@ -12,6 +12,7 @@ function solution(n, works) {
   }
   return works.reduce((a, b) => a + b * b, 0);
 }
+// 최대값을 하나씩 계산하는 게 아니라 같은 값이면 한번에 다 빼버림
 
 console.log(solution(4, [4, 3, 3])) // 12
 console.log(solution(1, [2, 1, 2])) // 6
