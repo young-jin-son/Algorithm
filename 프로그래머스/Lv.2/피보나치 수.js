@@ -6,6 +6,6 @@ function solution(n) {
   }
   return fibo[n];
 }
-console.log(solution(1));
+
 console.log(solution(3)); // 2
 console.log(solution(5)); // 5
