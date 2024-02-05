@@ -1,15 +1,13 @@
 function solution(n, left, right) {
-  const arr = Array.from({ length: n }, () => Array.from({ length: n }, () => 0));
   const answer = [];
-  for (let i = n - 1; i >= 0; i--) {
-    for (let j = n - 1; j >= 0; j--) {
-      arr[i][j] = Math.max(i + 1, j + 1);
+  for (let i = left; i <= right; i++) {
+    if ((i + 1) % n === 0) {
+      answer.push(n);
+    } else {
+      answer.push(Math.max((i + 1) % n, Math.ceil((i + 1) / n)));
     }
   }
-  for (let i = 0; i < n; i++) {
-    answer.push(...arr[i]);
-  }
-  return answer.slice(left, right + 1);
+  return answer;
 }
 
 console.log(solution(3, 2, 5)); // [3, 2, 2 , 3]
