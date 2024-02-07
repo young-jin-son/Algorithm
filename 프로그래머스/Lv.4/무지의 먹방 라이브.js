@@ -78,23 +78,31 @@
 
 
 function solution(food_times, k) {
+  // 4. 종료 조건
+  const sum = food_times.reduce((a, b) => a + b, 0);
+  if (sum <= k) return -1;
+
   const n = food_times.length;
   const min = Math.min(...food_times);
-  console.log(min);
-  if (k >= n) {
-    k -= Math.floor(k / n);
+  if (min * n < k) { // 1
+    k -= min * n;
+    food_times = food_times.map(x => x - min);
+  } else if (min * n > k) { // 2
     food_times = food_times.map(x => x - Math.floor(k / n));
+    k -= Math.floor(k / n) * n;
+    if (k === 0) return 1;
   }
-  console.log(food_times);
-  for (let i = 0; k > 0; i++) {
+  for (let i = 0; k >= 0; i++) {
     if (food_times[i % n] !== 0) {
       food_times[i % n]--;
       k--;
     }
-    if (k === 0) return i + 1;
+    if (k < 0) return (i % n) + 1;
   }
 }
 
 console.log(solution([3, 1, 2], 5));// 1
 console.log(solution([5, 2, 3, 1, 4], 7)); // 3
 console.log(solution([5, 2, 3, 1, 4], 2)); // 3
+console.log(solution([6, 7, 6, 5, 6], 10)); // 1
+console.log(solution([6, 7, 6, 5, 6], 11)); // 2
