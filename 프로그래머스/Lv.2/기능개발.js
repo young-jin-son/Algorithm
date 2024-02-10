@@ -1,17 +1,17 @@
 function solution(progresses, speeds) {
   const answer = [];
   const n = progresses.length;
-  let prev = Number.MAX_SAFE_INTEGER;
-  let cnt = 0;
-  for (let i = 0; i < n; i++) {
+  let prev = Math.ceil((100 - progresses[0]) / speeds[0]);
+  let cnt = 1;
+  for (let i = 1; i < n; i++) {
     const days = Math.ceil((100 - progresses[i]) / speeds[i]);
     if (prev < days) {
       answer.push(cnt);
       cnt = 1;
+      prev = days;
     } else {
       cnt++;
     }
-    prev = days;
   }
   answer.push(cnt);
   return answer;
