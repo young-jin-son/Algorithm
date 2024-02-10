@@ -9,9 +9,6 @@ function solution(s) {
     for (const el of set) {
       if (!answer.includes(el)) answer.push(el);
     }
-    // for (let j = 0; j < set.length; j++) {
-    //   if (!answer.includes(set[j])) answer.push(set[j]);
-    // }
   }
   return answer;
 }
