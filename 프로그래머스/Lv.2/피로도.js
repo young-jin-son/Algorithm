@@ -3,9 +3,9 @@ const getPermutation = (permu, rests, output) => {
     return output.push(permu);
   }
   rests.forEach((v, idx) => {
-    const rest = [...rests.slice(0, idx), ...rests.slice(idx + 1)]
+    const rest = [...rests.slice(0, idx), ...rests.slice(idx + 1)];
     getPermutation([...permu, v], rest, output);
-  })
+  });
 }
 
 function solution(k, dungeons) {
