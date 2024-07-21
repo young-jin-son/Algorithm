@@ -35,7 +35,6 @@ function solution(friends, gifts) {
       } else {
         giftNum[name2]++;
       }
-
     }
   }
   return Math.max(...(Object.values(giftNum)));
