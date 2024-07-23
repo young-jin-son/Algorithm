@@ -21,13 +21,3 @@ function solution(players, callings) {
 }
 
 console.log(solution(["mumu", "soe", "poe", "kai", "mine"], ["kai", "kai", "mine", "mine"])); // ["mumu", "kai", "mine", "soe", "poe"]
-
-/**
- * mumu: 5
- * soe: 4
- * poe: 3
- * kai: 2 + 2 => 4
- * mine: 1 + 2 => 3
- */
-
-// mumu > kai > soe > mine > poe
