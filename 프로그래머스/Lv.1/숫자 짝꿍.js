@@ -12,7 +12,7 @@ function solution(X, Y) {
 
   for (let i = 9; i > -1; i--) {
     subset = Math.min(xCount[i], yCount[i]);
-    answer = answer + String(i).repeat(subset);
+    answer += String(i).repeat(subset);
   }
 
   if (!answer.length) return "-1";
