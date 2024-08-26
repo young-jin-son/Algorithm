@@ -18,19 +18,6 @@ function solution(n, lost, reserve) {
       }
     }
   }
-  // lost.sort((a, b) => a - b);
-  // for (const l of lost) {
-  //   students[l]--;
-  //   if (students[l] < 0) {
-  //     if (students[l - 1] > 0) {
-  //       students[l - 1]--;
-  //       students[l]++;
-  //     } else if (students[l + 1] > 0) {
-  //       students[l + 1]--;
-  //       students[l]++;
-  //     }
-  //   }
-  // }
 
   return students.filter(x => x >= 0).length;
 }
