@@ -6,8 +6,8 @@ function solution(X, Y) {
   let subset = 0;
 
   for (let i = 0; i < len; i++) {
-    if (X[i]) { xCount[X[i]]++; }
-    if (Y[i]) { yCount[Y[i]]++; }
+    if (X[i] !== undefined) { xCount[X[i]]++; }
+    if (Y[i] !== undefined) { yCount[Y[i]]++; }
   }
 
   for (let i = 9; i > -1; i--) {
