@@ -8,7 +8,6 @@ function solution(n, arr1, arr2) {
     map2.push(arr2[i].toString(2).padStart(n, "0").split("").map(Number));
   }
 
-  console.log(map1);
   for (let i = 0; i < n; i++) {
     const row = [];
     for (let j = 0; j < n; j++) {
