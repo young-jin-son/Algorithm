@@ -5,6 +5,7 @@ function solution(participant, completion) {
   for (const player of completion) {
     completed[player] = (completed[player] || 0) + 1;
   }
+
   for (const player of participant) {
     if (completed[player]) {
       completed[player]--;
@@ -13,6 +14,7 @@ function solution(participant, completion) {
       break;
     }
   }
+
   return unfinished;
 }
 
