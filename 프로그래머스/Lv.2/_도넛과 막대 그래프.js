@@ -1,20 +1,30 @@
 function solution(edges) {
   // 자기 자신 외에 자신으로 들어오는 엣지가 없는 노드.
   // 그래프 만듦
+  const count = Array(1_000_001).fill(0)
+  const in_edge = {};
   const graph = {};
+  let min = Number.MAX_SAFE_INTEGER;
+  let inserted_node = 0;
+
+  // 추가된 노드를 찾음
   for (const [x, y] of edges) {
-    if (graph[x]) {
-      graph[x].push(y);
-    } else {
-      graph[x] = [y];
+    count[x]--;
+    count[y]++;
+    if (min > count[x]) {
+      min = count[x];
+      inserted_node = x;
     }
   }
 
-  console.log("GRAPH", graph);
+  console.log(count.slice(0, 10))
+  console.log(in_edge);
+  console.log(inserted_node);
+  // console.log("GRAPH", graph);
   const answer = [];
   const insertedNode = Math.max(Object.values(graph));
   console.log(insertedNode)
-  return answer;
+  return [inserted_node];
 }
 
 console.log(solution([[2, 3], [4, 3], [1, 1], [2, 1]])) // [2, 1, 1, 0]
