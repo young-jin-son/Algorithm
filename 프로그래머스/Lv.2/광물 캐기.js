@@ -37,6 +37,5 @@ function solution(picks, minerals) {
   return tired;
 }
 
-// console.log(solution([1, 3, 2], ["diamond", "diamond", "diamond", "iron", "iron", "diamond", "iron", "stone"])); // 12
-// console.log(solution([0, 1, 1], ["iron", "iron", "iron", "iron", "iron", "diamond", "diamond", "diamond", "diamond", "diamond", "diamond"])); // 50
-console.log(solution([1, 5, 0], ["diamond", "diamond", "diamond", "diamond", "stone", "diamond", "diamond", "diamond", "diamond", "diamond"]));
+console.log(solution([1, 3, 2], ["diamond", "diamond", "diamond", "iron", "iron", "diamond", "iron", "stone"])); // 12
+console.log(solution([0, 1, 1], ["iron", "iron", "iron", "iron", "iron", "diamond", "diamond", "diamond", "diamond", "diamond", "diamond"])); // 50
