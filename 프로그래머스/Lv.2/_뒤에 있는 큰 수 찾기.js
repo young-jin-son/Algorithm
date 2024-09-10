@@ -17,4 +17,3 @@ function solution(numbers) {
 console.log(solution([2, 3, 3, 5])); // [3, 5, 5, -1] 
 console.log(solution([9, 1, 5, 3, 6, 2])); // [-1, 5, 6, 6, -1, -1]
 console.log(solution([4, 3, 2, 1, 2, 3])); // [-1, -1, 3, 2, 3, -1]
-// console.log(solution()); // 
