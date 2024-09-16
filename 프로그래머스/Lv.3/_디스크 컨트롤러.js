@@ -22,11 +22,7 @@ function solution(jobs) {
     }
   }
 
-  return Math.floor(sum / n); // 평균 대기 시간을 반환
+  return Math.floor(sum / n);
 }
 
-
 console.log(solution([[0, 3], [1, 9], [2, 6]])); // 9
-// console.log(solution()); // 
-// console.log(solution()); // 
-// console.log(solution()); // 
