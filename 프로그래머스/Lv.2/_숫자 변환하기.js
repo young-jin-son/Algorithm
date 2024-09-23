@@ -1,14 +1,14 @@
 function solution(x, y, n) {
   let answer = 0;
-  const dp = [x];
+  const dp = [];
   let i = 0;
 
   while (dp.at(-1).at(-1) < y) {
     i++;
-    for (const num of dp) {
+    const prev = [...dp];
+    for (const num of prev) {
       dp.push(num * 3, num * 2, num + n);
     }
-    // dp.push(arr);
   }
 
 
