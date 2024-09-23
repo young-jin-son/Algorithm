@@ -6,6 +6,7 @@ function solution(m, n, board) {
     isContinue = false;
     const index = [];
 
+    // 지울 블록 찾기
     for (let i = 0; i < m - 1; i++) {
       for (let j = 0; j <= n - 1; j++) {
         if (board[i][j] !== " " && board[i][j] === board[i + 1][j] && board[i][j] === board[i][j + 1] && board[i][j] === board[i + 1][j + 1]) {
@@ -15,10 +16,12 @@ function solution(m, n, board) {
       }
     }
 
+    // 블록 지우기
     for (const [x, y] of index) {
       [board[x][y], board[x + 1][y], board[x][y + 1], board[x + 1][y + 1]] = [" ", " ", " ", " "]
     }
 
+    // 블록 내리기
     for (let i = m - 1; i >= 0; i--) {
       for (let j = n - 1; j >= 0; j--) {
         if (board[i][j] === " ") {
