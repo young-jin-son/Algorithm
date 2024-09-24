@@ -1,4 +1,5 @@
 function solution(user_id, banned_id) {
+  const answer = new Set();
   const banned = [];
 
   for (const b of banned_id) {
@@ -20,32 +21,26 @@ function solution(user_id, banned_id) {
     banned.push(users);
   }
 
-  console.log(banned);
-
-  const answer = [];
-  const dfs = (i, j) => {
+  const dfs = (i, visited) => {
     if (i === banned.length) {
+      answer.add(visited.sort((a, b) => a - b).join(""));
       return;
     }
 
-    if (j === banned[i].length) {
-      return;
+    for (let j = 0; j < banned[i].length; j++) {
+      if (visited.indexOf(banned[i][j]) < 0) {
+        dfs(i + 1, [...visited, banned[i][j]]);
+      }
     }
-
-
-
-
   }
 
-  dfs(0, 0);
+  for (const n of banned[0]) {
+    dfs(1, [n]);
+  }
 
-  // 일단 모든 경우의 수를 다 만들고 배열에 저장. 각각을 set로 해서 중복을 제거하고, 길이가 banned와 같은 것만. 그리고 id로 정렬하던지.
-
-
-  // return set.size;
+  return answer.size;
 }
 
 console.log(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["fr*d*", "abc1**"])); // 2
 console.log(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["*rodo", "*rodo", "******"])); // 2
 console.log(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["fr*d*", "*rodo", "******", "******"])); // 3
-// console.log(solution()); // 
