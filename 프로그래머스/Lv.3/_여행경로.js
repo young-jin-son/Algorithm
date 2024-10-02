@@ -1,11 +1,11 @@
 function solution(tickets) {
   const graph = {};
-  const answer = [];
+  const answer = ["ICN"];
   const dest = {};
 
   for (const [to, from] of tickets) {
     if (!graph[to]) {
-      graph[to] = [];
+      graph[to] = [1];
     }
     graph[to].push(from);
     dest[from] = (dest[from] || 0) + 1;
@@ -16,20 +16,18 @@ function solution(tickets) {
   }
 
   console.log(graph);
+  console.log(dest)
 
-  const dfs = (cur, tmp) => {
-    if (!dest[cur]) {
-      return;
-    }
-    const arr = graph[cur];
-    console.log(arr);
-    // for (const city of arr) {
-    //   dfs(city, [...tmp, city]);
-    // }
-    answer.push(cur);
+  const dfs = (cur) => {
+
   }
 
-  dfs("ICN", ["ICN"]);
+  for (let i = 1; i < graph["ICN"].length; i++) {
+    dfs("ICN");
+  }
+  // while (answer.length !== tickets.length + 1) {
+
+  // }
 
   return answer;
 }
