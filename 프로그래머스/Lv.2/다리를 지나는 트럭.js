@@ -9,9 +9,8 @@ function solution(bridge_length, weight, truck_weights) {
     bridge_weight -= bridge.shift();
 
     if (bridge_weight + truck_weights[i] <= weight) {
-      let truck_weight = truck_weights[i];
-      bridge.push(truck_weight);
-      bridge_weight += truck_weight;
+      bridge.push(truck_weights[i]);
+      bridge_weight += truck_weights[i];
       i++;
     } else {
       bridge.push(0);
