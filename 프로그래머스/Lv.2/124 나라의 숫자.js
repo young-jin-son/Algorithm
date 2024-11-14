@@ -22,6 +22,10 @@ function solution(n) {
   return answer.join("")
 }
 
+function solution2(n) {
+  return n === 0 ? '' : solution2(parseInt((n - 1) / 3)) + [1, 2, 4][(n - 1) % 3];
+}
+
 console.log(solution(1)); // 1
 console.log(solution(2)); // 2
 console.log(solution(3)); // 4
