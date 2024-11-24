@@ -25,8 +25,6 @@ function solution(arrayA, arrayB) {
     gcd_b = getGCD(gcd_b, arrayB[i]);
   }
 
-  console.log(gcd_a, gcd_b);
-
   let gcd_a_is_valid = true;
   for (let i = 0; i < arrayB.length; i++) {
     if (arrayB[i] % gcd_a === 0) {
