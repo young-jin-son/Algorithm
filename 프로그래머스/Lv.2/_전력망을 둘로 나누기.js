@@ -4,7 +4,6 @@ function solution(n, wires) {
   let tree = Array.from(Array(n + 1), () => []);
   wires.map((element) => {
     let [a, b] = element;
-
     tree[a].push(b);
     tree[b].push(a);
   })
