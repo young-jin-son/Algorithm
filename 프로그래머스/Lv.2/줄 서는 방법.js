@@ -1,22 +1,22 @@
-function getFactorial(n) {
-  let factorial = n;
-  for (let i = n - 1; i > 1; i--) factorial *= i;
-  return factorial;
+function getFactorials(n) {
+  const f = [1];
+  for (let i = 1; i < n; i++) f.push(f[i - 1] * (i + 1));
+  return f;
 }
 
 function solution(n, k) {
   const answer = [];
   let nums = Array(n).fill(0).map((v, i) => v + i + 1);
+  const factorials = getFactorials(n - 1);
 
   while (n > 1) {
-    let factorial = getFactorial(n - 1);
-    let tmp = Math.ceil(k / factorial) - 1;
-    answer.push(nums[tmp]);
-    nums = [...nums.slice(0, tmp), ...nums.slice(tmp + 1,)];
-    k -= tmp * factorial;
+    const factorial = factorials[n - 2];
+    const idx = Math.ceil(k / factorial) - 1;
+    answer.push(nums.splice(idx, 1)[0]);
+    k -= idx * factorial;
     n--;
   }
 
-  answer.push(...nums)
+  answer.push(nums[0]);
   return answer;
 }
