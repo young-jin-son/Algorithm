@@ -12,8 +12,8 @@ function solution(p) {
 
   let answer = "";
   let isBalance = 0;
-  let u = [];
-  let v = [];
+  let u = "";
+  let v = "";
 
   for (let i = 0; i < p.length; i++) {
     isBalance += (p[i] === "(") ? 1 : -1;
