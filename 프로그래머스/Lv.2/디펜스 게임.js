@@ -3,24 +3,35 @@ function solution(n, k, enemy) {
 
   let answer = k;
   let enemyIdx = k;
-  const mujuk = {};
-  for (let i = 0; i < k; i++) {
-    mujuk[enemy[i]] = (mujuk[enemy[i]] || 0) + 1;
-  }
-  let min = Math.min(...Object.keys(mujuk));
+  const mujuk = enemy.slice(0, k).sort((a, b) => a - b);
 
-  while ((n >= min || n >= enemy[enemyIdx]) && answer < enemy.length) {
+  const binaryInsert = (arr, value) => {
+    let left = 0;
+    let right = arr.length - 1;
+    while (left <= right) {
+      const mid = Math.floor((left + right) / 2);
+      if (arr[mid] === value) {
+        left = mid;
+        break;
+      } else if (arr[mid] < value) {
+        left = mid + 1;
+      } else {
+        right = mid - 1;
+      }
+    }
+    arr.splice(left, 0, value);
+  };
+
+  while (n > 0 && answer < enemy.length) {
     let nextEnemy = enemy[enemyIdx++];
-    if (nextEnemy <= min) {
+
+    if (nextEnemy <= mujuk[0]) {
       n -= nextEnemy;
     } else {
-      n -= min;
-      mujuk[min] -= 1;
-      if (!mujuk[min]) delete mujuk[min];
-      mujuk[nextEnemy] = (mujuk[nextEnemy] || 0) + 1;
+      n -= mujuk.shift();
+      binaryInsert(mujuk, nextEnemy);
     }
-    min = Math.min(...Object.keys(mujuk));
     answer += 1;
   }
-  return answer;
+  return n >= 0 ? answer : answer - 1;
 }
