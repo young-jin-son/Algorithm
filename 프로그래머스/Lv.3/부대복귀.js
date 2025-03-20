@@ -9,13 +9,16 @@ function getGraph(edges) {
   return graph;
 }
 
-function multiSourceBFS(graph, sources, destination) {
-  const distances = Array(Object.keys(graph).length + 1).fill(-1);
+function solution(n, roads, sources, destination) {
+  const graph = getGraph(roads);
+  const distances = Array(n + 1).fill(-1);
   const queue = [{ location: destination, cost: 0 }];
+  let i = 0;
+
   distances[destination] = 0;
 
-  while (queue.length) {
-    const { location, cost } = queue.shift();
+  while (i < queue.length) {
+    const { location, cost } = queue[i++];
 
     for (const next of graph[location] || []) {
       if (distances[next] === -1) {
@@ -26,9 +29,4 @@ function multiSourceBFS(graph, sources, destination) {
   }
 
   return sources.map(src => distances[src]);
-}
-
-function solution(n, roads, sources, destination) {
-  const graph = getGraph(roads);
-  return multiSourceBFS(graph, sources, destination);
 }
