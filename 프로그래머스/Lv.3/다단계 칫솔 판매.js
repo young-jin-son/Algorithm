@@ -1,5 +1,4 @@
 function solution(enroll, referral, seller, amount) {
-  const answer = [];
   const refer = {};
   const profit = {};
 
